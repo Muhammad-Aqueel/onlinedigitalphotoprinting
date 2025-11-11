@@ -1,0 +1,264 @@
+﻿@model digitalphotoprinting.Models.PurchaseOrder
+
+@{
+    ViewData["Title"] = "Order Details";
+}
+
+@*<div>
+    <h4>@ViewData["Title"]</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Image_Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Image_Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Folder_Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Folder_Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Print_size)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Print_size)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email_Subject)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email_Subject)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email_Text)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email_Text)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Credit_Card_Number)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Credit_Card_Number)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Image_Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Image_Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+    </dl>
+</div>*@
+
+<!-- ==============================
+/////// Begin body content ///////
+=============================== -->
+<div id="body-content">
+
+    <!-- ================================
+    ///// Begin page header section /////
+    ================================= -->
+    <section id="page-header-secion" class="alter-heading">
+
+        <!-- Begin page header image
+        ===============================
+        * Use class "parallax" to enable parallax effect.
+        -->
+        <div class="page-header-image parallax bg-image" style="background-image: url(../../assets/img/headings/heading-11.jpg); background-position: 50% 50%;"></div>
+        <!-- End page header image -->
+        <!-- Element cover -->
+        <div class="cover page-header-cover"></div>
+
+        <!-- Begin page header info -->
+        <div class="container-fluid page-header-content no-padding text-center">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <h1 class="album-title">@ViewData["Title"]</h1>
+
+                </div> <!-- /.col -->
+            </div> <!-- /.row -->
+        </div>
+        <!-- End page header info -->
+
+    </section>
+    <!-- End page header section -->
+    <!-- ============================
+    ///// Begin content section /////
+    ============================= -->
+    <section id="content-section" class="album-single">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Begin content wrap -->
+                    <div class="content-wrap">
+
+
+                        <div class="blog-list">
+                            <div class="row">
+
+                                <!-- Content column -->
+                                <div class="col-md-12">
+
+                                    <!-- Begin blog single post
+                                    ============================= -->
+                                    <div class="blog-single-post">
+
+                                        <!-- <h1 class="blog-single-post-title">The Truth About Photography</h1> -->
+                                        <!-- Begin blog single attributes -->
+                                        <!-- End blog single attributes -->
+                                        <!-- begin post content -->
+                                        <div class="post-content lightgallery">
+                                            <div>
+                                                <dl class="dl-horizontal">
+                                                    <dt>
+                                                        @Html.DisplayNameFor(model => model.Image_Title)
+                                                    </dt>
+                                                    <dd>
+                                                        @Html.DisplayFor(model => model.Image_Title)
+                                                    </dd>
+                                                    @if (User.IsInRole("Admin"))
+                                                    {
+                                                        <dt>
+                                                            @Html.DisplayNameFor(model => model.Folder_Name)
+                                                        </dt>
+                                                        <dd>
+                                                            @Html.DisplayFor(model => model.Folder_Name)
+                                                        </dd>
+                                                    }
+                                                    <dt>
+                                                        @Html.DisplayNameFor(model => model.Print_size)
+                                                    </dt>
+                                                    <dd>
+                                                        @Html.DisplayFor(model => model.Print_size)
+                                                    </dd>
+                                                    <dt>
+                                                        @Html.DisplayNameFor(model => model.Email)
+                                                    </dt>
+                                                    <dd>
+                                                        @Html.DisplayFor(model => model.Email)
+                                                    </dd>
+                                                    <dt>
+                                                        @Html.DisplayNameFor(model => model.Email_Subject)
+                                                    </dt>
+                                                    <dd>
+                                                        @Html.DisplayFor(model => model.Email_Subject)
+                                                    </dd>
+                                                    <dt>
+                                                        @Html.DisplayNameFor(model => model.Email_Text)
+                                                    </dt>
+                                                    <dd>
+                                                        @Html.DisplayFor(model => model.Email_Text)
+                                                    </dd>
+                                                    <dt>
+                                                        @Html.DisplayNameFor(model => model.Credit_Card_Number)
+                                                    </dt>
+                                                    <dd>
+                                                        @Html.DisplayFor(model => model.Credit_Card_Number)
+                                                    </dd>
+                                                    @if (User.IsInRole("Admin"))
+                                                    {
+                                                        <dt>
+                                                            @Html.DisplayNameFor(model => model.Image_Name)
+                                                        </dt>
+                                                        <dd>
+                                                            @Html.DisplayFor(model => model.Image_Name)
+                                                        </dd>
+                                                    }
+                                                    <dt>
+                                                        @Html.DisplayNameFor(model => model.Status)
+                                                    </dt>
+                                                    <dd>
+                                                        @Html.DisplayFor(model => model.Status)
+                                                    </dd>
+                                                </dl>
+                                                <div>
+                                                    @if (User.IsInRole("Admin") && Model.Status == "pending")
+                                                    {
+                                                        <a asp-action="Edit" asp-route-id="@Model.Order_Number">Edit</a>
+                                                    }
+                                                    | <a asp-action="Index">Back to List</a>
+                                                </div>
+                                            </div>
+
+                                            @if (Model.Status == "pending")
+                                            {
+                                                <a href="~/Files/@Html.DisplayFor(model => model.Folder_Name)/@Html.DisplayFor(model => model.Image_Name)" class="lg-trigger" data-exthumbnail="~/Files/@Html.DisplayFor(model => model.Folder_Name)/@Html.DisplayFor(model => model.Image_Name)">
+                                                    <img src="~/Files/@Html.DisplayFor(model => model.Folder_Name)/@Html.DisplayFor(model => model.Image_Name)" alt="@Html.DisplayFor(model => model.Image_Title)">
+                                                </a>
+                                                <a href="~/Files/@Html.DisplayFor(model => model.Folder_Name)/@Html.DisplayFor(model => model.Image_Name)" style="position: absolute;" download><i class="fas fa-file-download"></i></a>
+                                            }
+                                        </div>
+                                        <!-- End post content -->
+                                        <!-- Begin blog single attributes -->
+                                        <!-- End blog single attributes -->
+
+                                    </div>
+                                    <!-- End blog single post -->
+                                    <!-- Begin blog single nav -->
+                                    <!-- End blog single nav -->
+                                    <!-- Begin post comments
+                                    ========================= -->
+                                    <!-- End post comments -->
+
+                                </div> <!-- /.col (Content column) -->
+
+                            </div> <!-- /.row -->
+                        </div>
+                    </div>
+                    <!-- End content wrap -->
+                </div> <!-- /.col -->
+            </div> <!-- /.row -->
+            <!-- Begin album bottom nav -->
+            <!-- End album bottom nav -->
+            <!-- /.row -->
+        </div> <!-- /.container -->
+    </section>
+    <!-- End content section -->
+    <!-- Begin footer -->
+    <footer id="footer">
+        <div class="footer-inner">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-sm-6">
+                        <div class="copyright">
+                            &copy; MyImage / All Rights Reserved
+                        </div>
+                    </div> <!-- /.col -->
+
+                    <div class="col-sm-6">
+                        <!--<div class="social-icons">
+                            <ul>
+                                <li><a target="_blank" href="https://www.facebook.com" title="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a target="_blank" href="https://twitter.com/" title="Follow us on Twitter"><i class="fab fa-twitter"></i></a></li>
+                                <li><a target="_blank" href="https://www.pinterest.com" title="Follow us on Pinterest"><i class="fab fa-pinterest-p"></i></a></li>
+                                <li><a target="_blank" href="https://www.instagram.com" title="Follow us on Instagram"><i class="fab fa-instagram"></i></a></li>-->
+                        <!-- shange "your@email.com" to your email -->
+                        <!--										<li><a target="_blank" href="mailto:your@email.com" title="Contact Us"><i class="fas fa-envelope"></i></a></li>
+                            </ul>
+                        </div>-->
+                    </div> <!-- /.col -->
+
+                </div> <!-- /.row -->
+            </div> <!-- /.container -->
+        </div> <!-- /.footer-inner -->
+    </footer>
+    <!-- End footer -->
+</div>
+<!-- End body content -->

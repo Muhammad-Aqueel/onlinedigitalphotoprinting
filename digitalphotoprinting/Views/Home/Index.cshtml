@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div id="body-content">
+
+
+	<!-- ==============================
+	/////// Begin intro section ///////
+	===================================
+	* Use class "bg-image-scroll-horizontal" or "bg-image-scroll-vertical" to enable background image scrolling animation (otherwise use class "bg-image" or "bg-image-fixed").
+	* Use class "full-page" to enable fullscreen intro.
+	-->
+	<section id="intro-section" class="full-page bg-image-scroll-vertical" style="background-image: url(assets/img/scrolling-bg.jpg); background-position: 50% 50%;">
+
+		<!-- Element cover -->
+		<div class="cover bg-transparent-6-dark"></div>
+
+		<!-- Begin intro caption
+		=========================
+		* Use classes "align-center" and "text-center" to align caption to the center.
+		-->
+		<div class="intro-caption bg-transparent-8-dark text-gray-3">
+			<h1 class="intro-title">Digital Photo Printing Online</h1>
+			<p class="intro-text hide-from-xs">Digital photo printing has revolutionized the way we capture and share memories. In the contemporary era, the traditional darkroom has given way to the convenience and efficiency of digital printing technology.</p>
+			<div class="intro-button-wrap">
+				<a href="javascript:void(0)" class="btn btn-default btn-rounded-5x">How it Works</a>
+				<a target="_blank" asp-area="Identity" asp-page="/Account/Register" class="btn btn-primary btn-rounded-5x margin-top-10 hide-from-xs">Get Started</a>
+			</div>
+		</div>
+		<!-- End intro caption -->
+		<!-- Begin made with love -->
+		<!-- <div class="made-with-love hide-from-sm">
+			<p>Made With <span class="text-red"><i class="far fa-heart"></i></span></p>
+		</div> -->
+		<!-- End made with love -->
+
+	</section>
+	<!-- End intro section -->
+	<!-- Begin footer -->
+	<footer id="footer">
+		<div class="footer-inner">
+			<div class="container-fluid">
+				<div class="row">
+
+					<div class="col-sm-6">
+						<div class="copyright">
+							&copy; MyImage / All Rights Reserved
+						</div>
+					</div> <!-- /.col -->
+
+					<div class="col-sm-6">
+						<!--<div class="social-icons">
+							<ul>
+								<li><a target="_blank" href="https://www.facebook.com" title="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a></li>
+								<li><a target="_blank" href="https://twitter.com/" title="Follow us on Twitter"><i class="fab fa-twitter"></i></a></li>
+								<li><a target="_blank" href="https://www.pinterest.com" title="Follow us on Pinterest"><i class="fab fa-pinterest-p"></i></a></li>
+								<li><a target="_blank" href="https://www.instagram.com" title="Follow us on Instagram"><i class="fab fa-instagram"></i></a></li>-->
+						<!-- shange "your@email.com" to your email -->
+						<!--										<li><a target="_blank" href="mailto:your@email.com" title="Contact Us"><i class="fas fa-envelope"></i></a></li>
+							</ul>
+						</div>-->
+					</div> <!-- /.col -->
+
+				</div> <!-- /.row -->
+			</div> <!-- /.container -->
+		</div> <!-- /.footer-inner -->
+	</footer>
+	<!-- End footer -->
+
+
+</div>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "digitalphotoprinting", "digitalphotoprinting\digitalphotoprinting.csproj", "{59BA17CB-2F16-49E3-96A5-201BE15AAF58}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59BA17CB-2F16-49E3-96A5-201BE15AAF58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59BA17CB-2F16-49E3-96A5-201BE15AAF58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59BA17CB-2F16-49E3-96A5-201BE15AAF58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59BA17CB-2F16-49E3-96A5-201BE15AAF58}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {97002730-F607-4631-8233-8B9D3356B501}
+	EndGlobalSection
+EndGlobal

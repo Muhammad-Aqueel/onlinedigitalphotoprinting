@@ -1,0 +1,81 @@
+﻿@{
+    if (ViewData.TryGetValue("ParentLayout", out var parentLayout) && parentLayout !=  null)
+    {
+        Layout = parentLayout.ToString();
+    }
+    else
+    {
+        Layout = "/Areas/Identity/Pages/_Layout.cshtml";
+    }
+}
+
+<!-- ==============================
+/////// Begin body content ///////
+=============================== -->
+<div id="body-content">
+
+    <!-- ================================
+    ///// Begin page header section /////
+    ================================= -->
+    <section id="page-header-secion" class="alter-heading">
+
+        <!-- Begin page header image
+        ===============================
+        * Use class "parallax" to enable parallax effect.
+        -->
+        <div class="page-header-image parallax bg-image" style="background-image: url(../../../assets/img/headings/heading-11.jpg); background-position: 50% 50%;"></div>
+        <!-- End page header image -->
+        <!-- Element cover -->
+        <div class="cover page-header-cover"></div>
+
+        <!-- Begin page header info -->
+        <div class="container-fluid page-header-content no-padding text-center">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class ="album-title">Manage your account</h1>
+                    <h2>Change your account settings</h2>
+                </div> <!-- /.col -->
+            </div> <!-- /.row -->
+        </div>
+        <!-- End page header info -->
+
+    </section>
+    <partial name="_ManageNav" />
+    <!-- End page header section -->
+        @RenderBody()
+    <!-- Begin footer -->
+    <footer id="footer">
+        <div class="footer-inner">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-sm-6">
+                        <div class="copyright">
+                            &copy; MyImage / All Rights Reserved
+                        </div>
+                    </div> <!-- /.col -->
+
+                    <div class="col-sm-6">
+                        <!--<div class="social-icons">
+                            <ul>
+                                <li><a target="_blank" href="https://www.facebook.com" title="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a target="_blank" href="https://twitter.com/" title="Follow us on Twitter"><i class="fab fa-twitter"></i></a></li>
+                                <li><a target="_blank" href="https://www.pinterest.com" title="Follow us on Pinterest"><i class="fab fa-pinterest-p"></i></a></li>
+                                <li><a target="_blank" href="https://www.instagram.com" title="Follow us on Instagram"><i class="fab fa-instagram"></i></a></li>-->
+                        <!-- shange "your@email.com" to your email -->
+                        <!--										<li><a target="_blank" href="mailto:your@email.com" title="Contact Us"><i class="fas fa-envelope"></i></a></li>
+                            </ul>
+                        </div>-->
+                    </div> <!-- /.col -->
+
+                </div> <!-- /.row -->
+            </div> <!-- /.container -->
+        </div> <!-- /.footer-inner -->
+    </footer>
+    <!-- End footer -->
+</div>
+
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}

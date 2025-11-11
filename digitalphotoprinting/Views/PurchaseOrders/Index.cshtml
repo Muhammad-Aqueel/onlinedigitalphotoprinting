@@ -1,0 +1,411 @@
+﻿@model IEnumerable<digitalphotoprinting.Models.PurchaseOrder>
+
+@{
+    ViewData["Title"] = "Orders";
+}
+
+<!-- ==============================
+/////// Begin body content ///////
+=============================== -->
+<div id="body-content">
+
+	<!-- ================================
+	///// Begin page header section /////
+	================================= -->
+	<section id="page-header-secion" class="alter-heading">
+
+		<!-- Begin page header image
+		===============================
+		* Use class "parallax" to enable parallax effect.
+		-->
+		<div class="page-header-image parallax bg-image" style="background-image: url(../../assets/img/headings/heading-blur-5.jpg); background-position: 50% 50%;"></div>
+		<!-- End page header image -->
+		<!-- Element cover -->
+		<div class="cover page-header-cover"></div>
+
+		<!-- Begin page header info -->
+		<div class="container-fluid page-header-content no-padding text-center">
+			<div class="row">
+				<div class="col-md-12">
+
+                    <h1 class="album-title">@ViewData["Title"]</h1>
+
+				</div> <!-- /.col -->
+			</div> <!-- /.row -->
+		</div>
+		<!-- End page header info -->
+
+	</section>
+	<!-- End page header section -->
+	<!-- ============================
+	///// Begin content section /////
+	============================= -->
+    <section id="content-section" class="album-single">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Begin content wrap -->
+                    <div class="content-wrap">
+                        @if(User.IsInRole("User"))
+                        {
+                            <p style="text-align: right;">
+                                <a asp-action="Create"><i class="fas fa-plus"></i> Place New Order</a>
+                            </p>
+                            <!-- Begin isotope
+                            ===================
+                            * Use classes "gutter-1", "gutter-2" or "gutter-3" to add more space between items.
+                            * Use class "col-1", "col-2", "col-3", "col-4", "col-5" or "col-6" for columns.
+                            -->
+                            <div class="isotope gutter-2 col-6">
+
+                                <!-- Begin gallery top content -->
+                                <!-- End gallery top content -->
+                                <!-- Begin isotope items (album single items)
+                                ===============================================
+                                * Use classes "hover-center", "hover-boxed", "hover-dark", "hover-simple" to change album single item hover variations.
+                                * Note1: For grid layout make sure that your images are the same dimensions.
+                                * Note2: For masonry layout make sure that your images are the different dimensions.
+                                -->
+                                <div id="gallery" class="caption-gradient isotope-items-wrap lightgallery hover-center hover-boxed" style="position: relative; height: 1322.9px;">
+
+                                    <!-- Grid sizer (do not remove!!!) -->
+                                    <div class="grid-sizer"></div>
+
+                                    <!-- //////////////////
+                                    // Begin isotope item. Note: use class "width2" for alternative item width (works best on first item).
+                                    /////////////////////// -->
+                                    @foreach (var item in Model) {
+                                        @if (item.Status == "pending"  && item.Email == User.Identity?.Name)
+                                        {
+                                            <div class="isotope-item" style="position: absolute; left: 0px; top: 0px;">
+                                        <!-- Begin album single item -->
+                                        <div class="album-single-item">
+
+                                            <img class="asi-img" src="~/Files/@Html.DisplayFor(modelItem => item.Folder_Name)/@Html.DisplayFor(modelItem => item.Image_Name)" alt="image">
+                                            <div style="display: flex;flex-wrap: nowrap;align-items: center;justify-content: space-between;margin: 0px 10px;">
+                                                <a class="ali-link">
+                                                    <!-- <div class="ali-img-wrap">
+                                                        <img class="ali-img" src="./assets/img/album-list/grid/img-1.jpg" alt="image">
+                                                    </div> -->
+                                                    <div class="ali-caption">
+                                                            <h5 class="ali-title" style="margin-bottom: 5px;">@Html.DisplayFor(modelItem => item.Image_Title)</h5>
+                                                            <div class="ali-meta">Image Size:  @Html.DisplayFor(modelItem => item.Print_size)</div>
+                                                    </div>
+                                                </a>
+                                                <div style="text-align: center;">
+                                                    <a asp-action="Details" asp-route-id="@item.Order_Number" title="Order Details" style="display: block;"><i class="fas fa-eye"></i></a>
+												    <a asp-action="Delete" asp-route-id="@item.Order_Number" title="Cancel Order" style="display: block;"><i class="fas fa-trash-alt"></i></a>
+                                                </div>
+                                            </div>
+                                            <!-- Begin item cover -->
+                                            <div class="asi-cover">
+                                                    <a class="asi-link lg-trigger" href="~/Files/@Html.DisplayFor(modelItem => item.Folder_Name)/@Html.DisplayFor(modelItem => item.Image_Name)" data-exthumbnail="/Files/@Html.DisplayFor(modelItem => item.Folder_Name)/@Html.DisplayFor(modelItem => item.Image_Name)" data-sub-html="<h4>@Html.DisplayFor(modelItem => item.Image_Title)</h4><p>Image Size:  @Html.DisplayFor(modelItem => item.Print_size)</p>">
+                                                    <div class="asi-info">
+                                                        <span class="s-icon"><i class="fas fa-search"></i></span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <!-- End item cover -->
+                                        </div>
+                                        <!-- End album single item -->
+
+                                    </div>
+                                        }
+                                    }
+                                </div>
+                                <!-- End isotope items wrap -->
+
+                            </div>
+                            <!-- End isotope -->
+                        }
+                        else
+                        {
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Image_Title)
+                                        </th>
+                                        @*<th>
+                                    @Html.DisplayNameFor(model => model.Folder_Name)
+                                    </th>*@
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Print_size)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Email)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Email_Subject)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Email_Text)
+                                        </th>
+                                        @*<th>
+                                    @Html.DisplayNameFor(model => model.Credit_Card_Number)
+                                    </th>
+                                    <th>
+                                    @Html.DisplayNameFor(model => model.Image_Name)
+                                    </th>*@
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Status)
+                                        </th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        @if (item.Status == "pending")
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Image_Title)
+                                                </td>
+                                                @* <td>
+                                    @Html.DisplayFor(modelItem => item.Folder_Name)
+                                    </td>*@
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Print_size)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Email)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Email_Subject)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Email_Text)
+                                                </td>
+                                                @*<td>
+                                    @Html.DisplayFor(modelItem => item.Credit_Card_Number)
+                                    </td>
+                                    <td>
+                                    <img src="~/files/@User.Identity?.Name/@Html.DisplayFor(modelItem => item.Image_Name)">
+                                    </td>*@
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Status)
+                                                </td>
+                                                <td>
+                                                    <a asp-action="Edit" asp-route-id="@item.Order_Number"><i class="fas fa-edit"></i></a> |
+                                                    <a asp-action="Details" asp-route-id="@item.Order_Number"><i class="fas fa-eye"></i></a>@* |
+                                        <a asp-action="Delete" asp-route-id="@item.Order_Number">Delete</a>*@
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        }
+                    </div>
+                    <!-- End content wrap -->
+                </div> <!-- /.col -->
+            </div> <!-- /.row -->
+            <!-- Begin album bottom nav -->
+            <!-- End album bottom nav -->
+            <!-- /.row -->
+        </div> <!-- /.container -->
+        <div class="container-fluid margin-top-20">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Begin content wrap -->
+                    <div class="content-wrap">
+                        @if (User.IsInRole("User"))
+                        {
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Image_Title)
+                                        </th>
+                                        @*<th>
+                                        @Html.DisplayNameFor(model => model.Folder_Name)
+                                    </th>*@
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Print_size)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Email)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Email_Subject)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Email_Text)
+                                        </th>
+                                        @*<th>
+                                        @Html.DisplayNameFor(model => model.Credit_Card_Number)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Image_Name)
+									</th>*@
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Status)
+                                        </th>
+                                        @*<th></th>*@
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        @if (item.Status != "pending" && item.Email == User.Identity?.Name)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Image_Title)
+                                                </td>
+                                                @* <td>
+                                            @Html.DisplayFor(modelItem => item.Folder_Name)
+                                        </td>*@
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Print_size)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Email)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Email_Subject)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Email_Text)
+                                                </td>
+                                                @*<td>
+                                            @Html.DisplayFor(modelItem => item.Credit_Card_Number)
+                                        </td>
+                                        <td>
+                                            <img src="~/files/@User.Identity?.Name/@Html.DisplayFor(modelItem => item.Image_Name)">
+                                        </td>*@
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Status)
+                                                </td>
+                                                @*<td>
+                                            <a asp-action="Edit" asp-route-id="@item.Order_Number">Edit</a> |
+                                            <a asp-action="Details" asp-route-id="@item.Order_Number">Details</a> |
+                                            <a asp-action="Delete" asp-route-id="@item.Order_Number">Delete</a>
+                                        </td>*@
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        }
+                        else
+                        {
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Image_Title)
+                                        </th>
+                                        @*<th>
+                                            @Html.DisplayNameFor(model => model.Folder_Name)
+                                        </th>*@
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Print_size)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Email)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Email_Subject)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Email_Text)
+                                        </th>
+                                        @*<th>
+                                    @Html.DisplayNameFor(model => model.Credit_Card_Number)
+                                    </th>
+                                    <th>
+                                    @Html.DisplayNameFor(model => model.Image_Name)
+                                    </th>*@
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Status)
+                                        </th>
+                                        @*<th></th>*@
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        @if (item.Status != "pending")
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Image_Title)
+                                                </td>
+                                                @* <td>
+                                    @Html.DisplayFor(modelItem => item.Folder_Name)
+                                    </td>*@
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Print_size)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Email)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Email_Subject)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Email_Text)
+                                                </td>
+                                                @*<td>
+                                    @Html.DisplayFor(modelItem => item.Credit_Card_Number)
+                                    </td>
+                                    <td>
+                                    <img src="~/files/@User.Identity?.Name/@Html.DisplayFor(modelItem => item.Image_Name)">
+                                    </td>*@
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Status)
+                                                </td>
+												@*<td>
+                                                    <a asp-action="Edit" asp-route-id="@item.Order_Number"><i class="fas fa-edit"></i></a> |
+                                                    <a asp-action="Details" asp-route-id="@item.Order_Number">Details</a> |
+                                                    <a asp-action="Delete" asp-route-id="@item.Order_Number">Delete</a>
+                                                </td>*@
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        }
+                    </div>
+                    <!-- End content wrap -->
+                </div> <!-- /.col -->
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </section>
+	<!-- End content section -->
+	<!-- Begin footer -->
+	<footer id="footer">
+		<div class="footer-inner">
+			<div class="container-fluid">
+				<div class="row">
+
+					<div class="col-sm-6">
+						<div class="copyright">
+							&copy; MyImage / All Rights Reserved
+						</div>
+					</div> <!-- /.col -->
+
+					<div class="col-sm-6">
+						<!--<div class="social-icons">
+							<ul>
+								<li><a target="_blank" href="https://www.facebook.com" title="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a></li>
+								<li><a target="_blank" href="https://twitter.com/" title="Follow us on Twitter"><i class="fab fa-twitter"></i></a></li>
+								<li><a target="_blank" href="https://www.pinterest.com" title="Follow us on Pinterest"><i class="fab fa-pinterest-p"></i></a></li>
+								<li><a target="_blank" href="https://www.instagram.com" title="Follow us on Instagram"><i class="fab fa-instagram"></i></a></li>-->
+						<!-- shange "your@email.com" to your email -->
+						<!--										<li><a target="_blank" href="mailto:your@email.com" title="Contact Us"><i class="fas fa-envelope"></i></a></li>
+							</ul>
+						</div>-->
+					</div> <!-- /.col -->
+
+				</div> <!-- /.row -->
+			</div> <!-- /.container -->
+		</div> <!-- /.footer-inner -->
+	</footer>
+	<!-- End footer -->
+
+
+</div>
+<!-- End body content -->
