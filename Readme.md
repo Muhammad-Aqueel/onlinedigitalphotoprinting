@@ -6,25 +6,25 @@ Digital Photo Printing is a full-featured web application built with ASP.NET Cor
 
 ## Features
 
-### ?? Authentication & Authorization
+### Authentication & Authorization
 - **ASP.NET Core Identity** integration
 - Role-based access control (Admin and User roles)
 - Custom user registration with extended profile fields
 - Secure login/logout functionality
 - Password reset and management
 
-### ??? Order Management
+### Order Management
 - Create, view, edit, and delete photo printing orders
 - File upload for images with folder organization
 - Multiple print size options (4x6, 10x12, 6x4, 12x10)
 - Order status tracking (pending, completed, etc.)
 - Credit card information handling
 
-### ?? User Roles
+### User Roles
 - **Admin**: Full access to all orders, user management, system configuration
 - **User**: Personal order management, profile customization
 
-### ?? User Interface
+### User Interface
 - Responsive design with dark/light theme toggle
 - Modern photography-themed layout
 - Custom CSS styling and JavaScript interactions
